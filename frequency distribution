@@ -1,0 +1,35 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Sample data: list of test scores
+scores = [85, 90, 75, 80, 90, 85, 95, 80, 75, 85, 90, 70]
+
+# 1️⃣ Create a pandas Series
+data = pd.Series(scores)
+
+# 2️⃣ Compute frequency distribution
+freq_dist = data.value_counts().sort_index()
+
+print("Frequency Distribution:")
+print(freq_dist)
+
+# 3️⃣ Plot the frequency distribution as a bar plot
+plt.figure(figsize=(8,5))
+plt.bar(freq_dist.index, freq_dist.values, color='lightcoral')
+plt.title("Frequency Distribution of Scores")
+plt.xlabel("Scores")
+plt.ylabel("Frequency")
+
+# Display frequency values on top of bars
+for i, val in enumerate(freq_dist.values):
+    plt.text(freq_dist.index[i], val + 0.1, str(val), ha='center', fontsize=10)
+
+plt.show()
+Frequency Distribution:
+70    1
+75    2
+80    2
+85    3
+90    3
+95    1
+dtype: int64
