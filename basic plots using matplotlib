@@ -1,0 +1,59 @@
+import matplotlib.pyplot as plt
+
+# 1️⃣ Sample data
+x = [1, 2, 3, 4, 5]
+y = [10, 15, 7, 12, 20]
+
+# 2️⃣ Line Plot
+plt.figure(figsize=(6,4))
+plt.plot(x, y, color='blue', marker='o', linestyle='-', label='Line Plot')
+plt.title("Line Plot Example")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# 3️⃣ Bar Plot
+departments = ['HR', 'IT', 'Finance', 'Marketing']
+salaries = [50000, 60000, 65000, 55000]
+
+plt.figure(figsize=(6,4))
+plt.bar(departments, salaries, color='green')
+plt.title("Bar Plot Example")
+plt.xlabel("Department")
+plt.ylabel("Salary")
+plt.show()
+
+# 4️⃣ Scatter Plot
+ages = [25, 30, 35, 40, 28]
+bonuses = [5000, 6000, 7500, 6500, 5500]
+
+plt.figure(figsize=(6,4))
+plt.scatter(ages, bonuses, color='red', marker='x')
+plt.title("Scatter Plot Example")
+plt.xlabel("Age")
+plt.ylabel("Bonus")
+plt.show()
+import matplotlib.pyplot as plt
+
+# Sample data
+departments = ['HR', 'IT', 'Finance', 'Marketing']
+salaries = [50000, 60000, 65000, 55000]
+
+# Create a bar plot
+plt.figure(figsize=(8,5))                 # Set figure size
+plt.bar(departments, salaries, color='skyblue')  # Bar color
+
+# Add title and labels
+plt.title("Average Salary by Department")
+plt.xlabel("Department")
+plt.ylabel("Salary ($)")
+plt.ylim(0, 70000)                        # Set y-axis limit
+
+# Show values on top of bars
+for i, salary in enumerate(salaries):
+    plt.text(i, salary + 2000, str(salary), ha='center', fontsize=10)
+
+# Display the plot
+plt.show()
