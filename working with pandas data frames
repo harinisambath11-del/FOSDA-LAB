@@ -1,0 +1,47 @@
+import pandas as pd
+
+# 1️⃣ Create sample data
+data = {
+    "Name": ["Alice", "Bob", "Charlie", "David", "Eva"],
+    "Department": ["HR", "IT", "IT", "Finance", "HR"],
+    "Salary": [50000, 60000, 75000, 65000, None],
+    "Age": [25, 30, 35, 40, 28]
+}
+
+# 2️⃣ Create DataFrame
+df = pd.DataFrame(data)
+
+print("Original DataFrame:")
+print(df)
+
+# 3️⃣ Handle missing values
+df["Salary"].fillna(df["Salary"].mean(), inplace=True)
+
+print("\nAfter Filling Missing Salary:")
+print(df)
+
+# 4️⃣ Add new column
+df["Bonus"] = df["Salary"] * 0.10
+
+# 5️⃣ Filter employees with salary > 60000
+high_salary = df[df["Salary"] > 60000]
+
+print("\nEmployees with Salary > 60000:")
+print(high_salary)
+
+# 6️⃣ Group by Department and calculate average salary
+dept_avg = df.groupby("Department")["Salary"].mean()
+
+print("\nAverage Salary by Department:")
+print(dept_avg)
+
+# 7️⃣ Sort by Salary
+sorted_df = df.sort_values("Salary", ascending=False)
+
+print("\nSorted by Salary (Descending):")
+print(sorted_df)
+
+# 8️⃣ Save to CSV
+df.to_csv("employee_output.csv", index=False)
+
+print("\nProgram completed successfully!")
